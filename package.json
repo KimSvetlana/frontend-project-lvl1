@@ -2,7 +2,7 @@
   "name": "brain_games",
   "version": "1.0.0",
   "description": "first project",
-  "main": "index.js",  
+  "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -22,7 +22,7 @@
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5"
   },
-  "dependencies": {    
+  "dependencies": {
     "readline-sync": "^1.4.9"
-  }  
+  }
 }
