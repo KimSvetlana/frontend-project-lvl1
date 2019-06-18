@@ -34,3 +34,33 @@ export const isEven = (name) => {
 	
 	console.log(`Congratulations, ${name}!`);
 }
+
+export const calculation = (name) => {
+
+	const correctAnswerCalculations = (numOne, numTwo, oper) => eval(`${Number(numOne)}${(oper)}${Number(numTwo)}`);
+		
+	for (let i = 1; i <= 3; i++) {
+
+		const num1 = Math.round(Math.random() * 100);
+		const num2 = Math.round(Math.random() * 100);
+
+		const operations = '+-*'
+
+		const operand = operations.charAt(Math.floor(Math.random() * operations.length));
+
+		console.log('Question: ' + num1 + operand + num2);
+
+		const yourAnswer = readlineSync.question('Your answer:');
+		
+
+		if(yourAnswer == correctAnswerCalculations(num1, num2, operand)) {
+		    console.log('Correct!');
+		}
+		else {
+		    console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${correctAnswerCalculations(num1, num2, operand)} \nLet\'s try again, ${name}`);		    	   
+		    return;
+		}
+	}
+
+  	console.log(`Congratulations, ${name}!`);
+};
