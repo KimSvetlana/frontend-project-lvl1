@@ -1,119 +1,25 @@
 import readlineSync from 'readline-sync';
+import ApplyOperation from './mathFun';
 
-export const calculation = (name) => {
+const calculation = (name) => {
+  const num1 = Math.round(Math.random() * 100);
+  const num2 = Math.round(Math.random() * 100);
 
-	const correctAnswerCalculations = (numOne, numTwo, oper) => {
-		switch	(oper)
-		{
-			case '*':
-				return numOne * numTwo;
-			
-			case '+' : 
-				return numOne + numTwo;
+  const operations = '+-*';
 
-			case '-' :
-				return numOne - numTwo;
-		}
-	}
-			
+  const operator = operations.charAt(Math.floor(Math.random() * operations.length));
 
-	const num1 = Math.round(Math.random() * 100);
-	const num2 = Math.round(Math.random() * 100);
+  console.log(`Question: ${num1}${operator}${num2}`);
 
-	const operations = '+-*'
+  const yourAnswer = readlineSync.question('Your answer:');
 
-	const operator = operations.charAt(Math.floor(Math.random() * operations.length));
+  if (Number(yourAnswer) === ApplyOperation(operator, num1, num2)) {
+    console.log('Correct!');
+    return true;
+  }
 
-	console.log('Question: ' + num1 + operator + num2);
-
-	const yourAnswer = readlineSync.question('Your answer:');
-		
-	let success = true;
-
-	if(yourAnswer == correctAnswerCalculations(num1, num2, operator)) {
-		console.log('Correct!');
-		return success;
-	}
-
-	else {
-		console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${correctAnswerCalculations(num1, num2, operator)} \nLet\'s try again, ${name}`);		    	   
-	    return;
-	}
+  console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${ApplyOperation(operator, num1, num2)} \nLet's try again, ${name}`);
+  return false;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const calculation = (name) => {
-
-// 	const correctAnswerCalculations = (numOne, numTwo, oper) => {
-// 		switch	(oper)
-// 		{
-// 			case '*':
-// 				return numOne * numTwo;
-			
-// 			case '+' : 
-// 				return numOne + numTwo;
-
-// 			case '-' :
-// 				return numOne - numTwo;
-// 		}
-// 	}
-			
-// 	for (let i = 1; i <= 3; i++) {
-
-// 		const num1 = Math.round(Math.random() * 100);
-// 		const num2 = Math.round(Math.random() * 100);
-
-// 		const operations = '+-*'
-
-// 		const operator = operations.charAt(Math.floor(Math.random() * operations.length));
-
-// 		console.log('Question: ' + num1 + operator + num2);
-
-// 		const yourAnswer = readlineSync.question('Your answer:');
-		
-
-// 		if(yourAnswer == correctAnswerCalculations(num1, num2, operator)) {
-// 		    console.log('Correct!');
-// 		}
-// 		else {
-// 		    console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${correctAnswerCalculations(num1, num2, operator)} \nLet\'s try again, ${name}`);		    	   
-// 		    return;
-// 		}
-// 	}
-
-//   	console.log(`Congratulations, ${name}!`);
-// };
-
-
-
+export default calculation;
