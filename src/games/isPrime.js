@@ -1,7 +1,4 @@
-import readlineSync from 'readline-sync';
-
-
-const isPrime = (name) => {
+const isPrime = () => {
   const correctAnsverPrime = (num) => {
     for (let i = 2; i < num; i += 1) {
       if (num % i === 0) {
@@ -13,17 +10,9 @@ const isPrime = (name) => {
 
   const num1 = Math.round(Math.random() * 100);
   console.log(`Question: ${num1}`);
-  const yourAnswer = readlineSync.question('Your answer:');
 
-  const success = true;
-
-  if (correctAnsverPrime(num1) === yourAnswer) {
-    console.log('Correct!');
-    return success;
-  }
-
-  console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${correctAnsverPrime(num1)} \nLet's try again, ${name}`);
-  return false;
+  const answer = correctAnsverPrime(num1);
+  return answer.toString();
 };
 
 export default isPrime;

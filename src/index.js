@@ -8,16 +8,13 @@ export const yourName = () => {
 
 export const play = (fun, name) => {
   for (let i = 1; i <= 3; i += 1) {
-    // const answer = fun();
-    // const yourAnswer = readlineSync.question('Your answer:');
+    const answer = fun();
+    const yourAnswer = readlineSync.question('Your answer:');
 
-    // if (answer === yourAnswer) {
-    //   console.log('Correct!');
-    // }
-
-    // console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${answer} \nLet's try again, ${name}`);
-    const game = fun(name);
-    if (!game) {
+    if (yourAnswer === answer) {
+      console.log('Correct!');
+    } else {
+      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${answer} \nLet's try again, ${name}`);
       return;
     }
   }

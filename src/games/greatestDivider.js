@@ -1,6 +1,4 @@
-import readlineSync from 'readline-sync';
-
-const greatestDivider = (name) => {
+const greatestDivider = () => {
   const correctAnsverDev = (numOne, numTwo) => {
     let greatDivider = 1;
 
@@ -17,15 +15,8 @@ const greatestDivider = (name) => {
 
   console.log(`Question: ${num1} ${num2}`);
 
-  const yourAnswer = readlineSync.question('Your answer:');
-
-  if (Number(yourAnswer) === correctAnsverDev(num1, num2)) {
-    console.log('Correct!');
-    return true;
-  }
-
-  console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${correctAnsverDev(num1, num2)} \nLet's try again, ${name}`);
-  return false;
+  const answer = correctAnsverDev(num1, num2);
+  return answer.toString();
 };
 
 export default greatestDivider;

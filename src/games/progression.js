@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
 import ApplyOperation from './mathFun';
 
-const arithmeticProgression = (name) => {
+const arithmeticProgression = () => {
   const operations = '+-';
 
   const operator = operations.charAt(Math.round(Math.random() * (operations.length - 1)));
@@ -27,18 +26,8 @@ const arithmeticProgression = (name) => {
 
   console.log(`Question: ${progression} `);
 
-  const yourAnswer = readlineSync.question('Your answer:');
-
-  const success = true;
-
-  if (Number(yourAnswer) === unknown) {
-    console.log('Correct!');
-    return success;
-  }
-
-
-  console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${unknown} \nLet's try again, ${name}`);
-  return false;
+  const answer = unknown;
+  return answer.toString();
 };
 
 export default arithmeticProgression;

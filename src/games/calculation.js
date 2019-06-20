@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
 import ApplyOperation from './mathFun';
 
-const calculation = (name) => {
+const calculation = () => {
   const num1 = Math.round(Math.random() * 100);
   const num2 = Math.round(Math.random() * 100);
 
@@ -11,15 +10,8 @@ const calculation = (name) => {
 
   console.log(`Question: ${num1}${operator}${num2}`);
 
-  const yourAnswer = readlineSync.question('Your answer:');
-
-  if (Number(yourAnswer) === ApplyOperation(operator, num1, num2)) {
-    console.log('Correct!');
-    return true;
-  }
-
-  console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${ApplyOperation(operator, num1, num2)} \nLet's try again, ${name}`);
-  return false;
+  const answer = ApplyOperation(operator, num1, num2);
+  return answer.toString();
 };
 
 export default calculation;
