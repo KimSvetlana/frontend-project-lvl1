@@ -8,11 +8,11 @@ export const yourName = () => {
 
 export const play = (fun, name) => {
 
-	let game = fun(name);
-
 	for (let i = 1; i <= 3; i++) {	
+		
+		let game = fun(name);
 
-		if (game){
+		if (!game){
 			return;
 		}
 
