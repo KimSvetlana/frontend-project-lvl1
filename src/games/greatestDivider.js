@@ -1,3 +1,5 @@
+import { randomNumberGenerator } from '../tools/mathFun';
+
 const greatestDivider = () => {
   const correctAnsverDev = (numOne, numTwo) => {
     let greatDivider = 1;
@@ -10,8 +12,8 @@ const greatestDivider = () => {
     return greatDivider;
   };
 
-  const num1 = Math.round(Math.random() * 100);
-  const num2 = Math.round(Math.random() * 100);
+  const num1 = randomNumberGenerator(100);
+  const num2 = randomNumberGenerator(100);
 
   console.log(`Question: ${num1} ${num2}`);
 

@@ -2,8 +2,11 @@
   "name": "brain_games",
   "version": "1.0.1",
   "description": "first project",
-  "keywords": "game,math functions, calculator",
-  "main": "index.js",
+  "keywords": ["game",
+	"math",
+	"functions",
+	"calculator"
+  ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",

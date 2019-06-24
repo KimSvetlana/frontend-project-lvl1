@@ -1,3 +1,5 @@
+import { randomNumberGenerator } from '../tools/mathFun';
+
 const isEven = () => {
   const correctAnswer = (num) => {
     if (num % 2 === 0) {
@@ -6,7 +8,7 @@ const isEven = () => {
     return 'no';
   };
 
-  const num1 = Math.round(Math.random() * 100);
+  const num1 = randomNumberGenerator(100);
   console.log(`Question: ${num1}`);
 
   const answer = correctAnswer(num1);

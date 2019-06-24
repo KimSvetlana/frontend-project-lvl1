@@ -1,4 +1,4 @@
-const ApplyOperation = (operator, numOne, numTwo) => {
+export const ApplyOperation = (operator, numOne, numTwo) => {
   switch (operator) {
     case '*':
       return numOne * numTwo;
@@ -10,4 +10,5 @@ const ApplyOperation = (operator, numOne, numTwo) => {
       break;
   }
 };
-export default ApplyOperation;
+
+export const randomNumberGenerator = range => Math.round(Math.random() * range);

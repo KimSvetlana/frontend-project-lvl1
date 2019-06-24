@@ -1,32 +1,32 @@
-import ApplyOperation from './mathFun';
+import { ApplyOperation, randomNumberGenerator } from '../tools/mathFun';
 
 const arithmeticProgression = () => {
   const operations = '+-';
+  const operatorProgression = operations.charAt(randomNumberGenerator(operations.length - 1));
 
-  const operator = operations.charAt(Math.round(Math.random() * (operations.length - 1)));
-
-  const firstMember = Math.round(Math.random() * 100);
-  const progressStep = Math.round(Math.random() * 10);
+  const firstMember = randomNumberGenerator(100);
+  const progressionStep = randomNumberGenerator(10);
 
   let progression = '';
-  let unknown = 0;
-  const unknownIndex = Math.round(Math.random() * 9);
+  const progressionLength = 10;
+  let unknownProgressionMember = 0;
+  const unknownProgressionMemberIndex = randomNumberGenerator(9);
   let currentMember = firstMember;
 
-  for (let i = 0; i < 10; i += 1) {
-    if (i === unknownIndex) {
-      unknown = currentMember;
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === unknownProgressionMemberIndex) {
+      unknownProgressionMember = currentMember;
       progression += '.. ';
     } else {
       progression += `${currentMember} `;
     }
 
-    currentMember = ApplyOperation(operator, currentMember, progressStep);
+    currentMember = ApplyOperation(operatorProgression, currentMember, progressionStep);
   }
 
   console.log(`Question: ${progression} `);
 
-  const answer = unknown;
+  const answer = unknownProgressionMember;
   return answer.toString();
 };
 
