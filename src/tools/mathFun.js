@@ -1,4 +1,4 @@
-export const ApplyOperation = (operator, numOne, numTwo) => {
+export const applyOperation = (operator, numOne, numTwo) => {
   switch (operator) {
     case '*':
       return numOne * numTwo;
@@ -7,7 +7,7 @@ export const ApplyOperation = (operator, numOne, numTwo) => {
     case '-':
       return numOne - numTwo;
     default:
-      break;
+      return 0;
   }
 };
 

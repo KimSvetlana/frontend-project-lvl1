@@ -1,8 +1,5 @@
 #!/bin/env node
-import { yourName, play } from '..';
-import isEven from '../games/isEven.js';
+import play from '..';
+import even from '../games/isEven';
 
-console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".');
-
-const name = yourName();
-play(isEven, name);
+play(even);

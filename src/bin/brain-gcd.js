@@ -1,8 +1,5 @@
 #!/bin/env node
-import { yourName, play } from '..';
-import greatestDivider from '../games/greatestDivider.js';
+import play from '..';
+import greatestDivider from '../games/greatestDivider';
 
-console.log('Welcome to the Brain Games!\nFind the greatest common divisor of given numbers.');
-
-const name = yourName();
-play(greatestDivider, name);
+play(greatestDivider);

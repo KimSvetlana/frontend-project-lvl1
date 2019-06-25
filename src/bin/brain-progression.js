@@ -1,8 +1,5 @@
 #!/bin/env node
-import { yourName, play } from '..';
-import arithmeticProgression from '../games/progression.js';
+import play from '..';
+import arithmeticProgression from '../games/progression';
 
-console.log('Welcome to the Brain Games!\nWhat number is missing in the progression?');
-
-const name = yourName();
-play(arithmeticProgression, name);
+play(arithmeticProgression);
