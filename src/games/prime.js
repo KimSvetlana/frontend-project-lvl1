@@ -1,28 +1,30 @@
 import { randomNumberGenerator } from '../tools/mathFun';
+import playGame from '../index';
 
-const correctAnsverPrime = (num) => {
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) {
-      return 'no';
+const isPrime = (number) => {
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
-const prime = (methodName) => {
-  if (methodName === 'getDescription') {
-    return 'Welcome to the Brain Games!\nAnswer "yes" if given number is prime. Otherwise answer "no"';
-  }
-  if (methodName === 'play') {
-    const num = randomNumberGenerator(100);
-    const question = `Question: ${num}`;
+const playPrimeRound = () => {
+  const num = randomNumberGenerator(0, 100);
+  const question = `Question: ${num}`;
 
-    const answer = (correctAnsverPrime(num)).toString();
-    return {
-      question,
-      answer,
-    };
-  }
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  return {
+    question,
+    correctAnswer,
+  };
 };
 
-export default prime;
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+
+const launchPrimeGame = () => {
+  playGame(gameDescription, playPrimeRound);
+};
+
+export default launchPrimeGame;

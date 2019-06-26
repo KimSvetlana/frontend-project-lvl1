@@ -11,4 +11,4 @@ export const applyOperation = (operator, numOne, numTwo) => {
   }
 };
 
-export const randomNumberGenerator = range => Math.round(Math.random() * range);
+export const randomNumberGenerator = (min, max) => Math.round(Math.random() * (max - min) + min);

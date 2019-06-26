@@ -1,5 +1,4 @@
 #!/bin/env node
-import play from '..';
-import greatestDivider from '../games/greatestDivider';
+import launchGcdGame from '../games/gcd';
 
-play(greatestDivider);
+launchGcdGame();

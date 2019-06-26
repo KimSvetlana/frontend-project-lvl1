@@ -1,5 +1,4 @@
 #!/bin/env node
-import play from '..';
-import arithmeticProgression from '../games/progression';
+import launchProgressionGame from '../games/progression';
 
-play(arithmeticProgression);
+launchProgressionGame();

@@ -1,5 +1,4 @@
 #!/bin/env node
-import play from '..';
-import even from '../games/isEven';
+import launchEvenGame from '../games/even';
 
-play(even);
+launchEvenGame();
