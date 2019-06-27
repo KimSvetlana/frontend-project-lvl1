@@ -3,7 +3,7 @@ import playGame from '../index';
 
 const playProgressionRound = () => {
   const operations = '+-';
-  const operatorProgression = operations.charAt(randomNumberGenerator(operations.length - 1));
+  const operatorProgression = operations.charAt(randomNumberGenerator(0, operations.length - 1));
 
   const firstMember = randomNumberGenerator(0, 100);
   const progressionStep = randomNumberGenerator(0, 10);
@@ -18,9 +18,9 @@ const playProgressionRound = () => {
   for (let i = 0; i < progressionLength; i += 1) {
     if (i === unknownProgressionMemberIndex) {
       unknownProgressionMember = currentMember;
-      progression += '.. ';
+      progression = `${progression} .. `;
     } else {
-      progression += `${currentMember} `;
+      progression = `${progression} ${currentMember} `;
     }
 
     currentMember = applyOperation(operatorProgression, currentMember, progressionStep);

@@ -6,9 +6,9 @@ const playGame = (gameDescription, playRoundFunction) => {
   const name = readlineSync.question('May I have your name?');
   console.log(`Hello, ${name}!`);
 
-  const numberOfRounds = 3;
+  const roundsCount = 3;
 
-  for (let i = 1; i <= numberOfRounds; i += 1) {
+  for (let i = 1; i <= roundsCount; i += 1) {
     const { question, correctAnswer } = playRoundFunction();
 
     console.log(question);
