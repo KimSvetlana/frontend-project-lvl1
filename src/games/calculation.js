@@ -1,7 +1,7 @@
 import randomNumberGenerator from '../tools/mathFun';
 import playGame from '../index';
 
-const applyOperation = (operator, numOne, numTwo) => {
+const makeCalculation = (operator, numOne, numTwo) => {
   switch (operator) {
     case '*':
       return numOne * numTwo;
@@ -24,7 +24,7 @@ const playCalculateRound = () => {
 
   const question = `Question: ${num1}${operator}${num2}`;
 
-  const correctAnswer = (applyOperation(operator, num1, num2)).toString();
+  const correctAnswer = (makeCalculation(operator, num1, num2)).toString();
   return {
     question,
     correctAnswer,
