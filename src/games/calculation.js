@@ -1,5 +1,18 @@
-import { applyOperation, randomNumberGenerator } from '../tools/mathFun';
+import randomNumberGenerator from '../tools/mathFun';
 import playGame from '../index';
+
+const applyOperation = (operator, numOne, numTwo) => {
+  switch (operator) {
+    case '*':
+      return numOne * numTwo;
+    case '+':
+      return numOne + numTwo;
+    case '-':
+      return numOne - numTwo;
+    default:
+      return 0;
+  }
+};
 
 const playCalculateRound = () => {
   const num1 = randomNumberGenerator(0, 100);

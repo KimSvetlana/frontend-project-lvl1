@@ -1,12 +1,9 @@
-import { applyOperation, randomNumberGenerator } from '../tools/mathFun';
+import randomNumberGenerator from '../tools/mathFun';
 import playGame from '../index';
 
 const playProgressionRound = () => {
-  const operations = '+-';
-  const operatorProgression = operations.charAt(randomNumberGenerator(0, operations.length - 1));
-
   const firstMember = randomNumberGenerator(0, 100);
-  const progressionStep = randomNumberGenerator(0, 10);
+  const progressionStep = randomNumberGenerator(-10, 10);
 
   let progression = '';
   const progressionLength = 10;
@@ -22,8 +19,7 @@ const playProgressionRound = () => {
     } else {
       progression = `${progression} ${currentMember} `;
     }
-
-    currentMember = applyOperation(operatorProgression, currentMember, progressionStep);
+    currentMember += progressionStep;
   }
 
   const question = `Question: ${progression} `;

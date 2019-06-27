@@ -1,4 +1,4 @@
-import { randomNumberGenerator } from '../tools/mathFun';
+import randomNumberGenerator from '../tools/mathFun';
 import playGame from '../index';
 
 const isEven = num => num % 2 === 0;
