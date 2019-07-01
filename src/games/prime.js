@@ -9,16 +9,17 @@ const isPrime = (number) => {
   if (number > 2) {
     for (let i = 2; i < number; i += 1) {
       if (number % i === 0) {
-        return true;
+        return false;
       }
     }
   }
+  return true;
 };
 
 const getDataForRound = () => {
-  const question = `${randomNumberGenerator(0, 100)}`;
+  const question = `${randomNumberGenerator(2, 100)}`;
 
-  const correctAnswer = isPrime(question) ? 'no' : 'yes';
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return {
     question,
     correctAnswer,
