@@ -1,28 +1,28 @@
-import randomNumberGenerator from '../tools/mathFun';
-import playGame from '../index';
+import randomNumberGenerator from '../NumberGenerator';
+import playGame from '..';
 
-const makeCalculate = (operator, numOne, numTwo) => {
+const operations = '+-*';
+
+const makeCalculate = (operator, a, b) => {
   switch (operator) {
     case '*':
-      return numOne * numTwo;
+      return a * b;
     case '+':
-      return numOne + numTwo;
+      return a + b;
     case '-':
-      return numOne - numTwo;
+      return a - b;
     default:
-      return 0;
+      return null;
   }
 };
 
-const playCalculateRound = () => {
+const getDataForRound = () => {
   const num1 = randomNumberGenerator(0, 100);
   const num2 = randomNumberGenerator(0, 100);
 
-  const operations = '+-*';
-
   const operator = operations.charAt(randomNumberGenerator(0, operations.length - 1));
 
-  const question = `Question: ${num1}${operator}${num2}`;
+  const question = `${num1}${operator}${num2}`;
 
   const correctAnswer = (makeCalculate(operator, num1, num2)).toString();
   return {
@@ -33,8 +33,6 @@ const playCalculateRound = () => {
 
 const gameDescription = 'What is the result of the expression?';
 
-const launchCalculateGame = () => {
-  playGame(gameDescription, playCalculateRound);
+export default () => {
+  playGame(gameDescription, getDataForRound);
 };
-
-export default launchCalculateGame;

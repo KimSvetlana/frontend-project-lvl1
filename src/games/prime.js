@@ -1,20 +1,25 @@
-import randomNumberGenerator from '../tools/mathFun';
-import playGame from '../index';
+import randomNumberGenerator from '../NumberGenerator';
+import playGame from '..';
 
 const isPrime = (number) => {
-  for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) {
-      return false;
+  if (number === 2) {
+    return true;
+  }
+  if (number > 2) {
+    for (let i = 2; i < number; i += 1) {
+      if (number % i === 0) {
+        return false;
+      }
+      return true;
     }
   }
-  return true;
+  return false;
 };
 
-const playPrimeRound = () => {
-  const num = randomNumberGenerator(0, 100);
-  const question = `Question: ${num}`;
+const getDataForRound = () => {
+  const question = `${randomNumberGenerator(0, 100)}`;
 
-  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return {
     question,
     correctAnswer,
@@ -23,8 +28,6 @@ const playPrimeRound = () => {
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-const launchPrimeGame = () => {
-  playGame(gameDescription, playPrimeRound);
+export default () => {
+  playGame(gameDescription, getDataForRound);
 };
-
-export default launchPrimeGame;

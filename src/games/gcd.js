@@ -1,5 +1,5 @@
-import randomNumberGenerator from '../tools/mathFun';
-import playGame from '../index';
+import randomNumberGenerator from '../NumberGenerator';
+import playGame from '..';
 
 const greatestCommonDivisor = (numOne, numTwo) => {
   let greatestDivisor = 1;
@@ -12,11 +12,11 @@ const greatestCommonDivisor = (numOne, numTwo) => {
   return greatestDivisor;
 };
 
-const playGcdRound = () => {
+const getDataForRound = () => {
   const num1 = randomNumberGenerator(0, 100);
   const num2 = randomNumberGenerator(0, 100);
 
-  const question = `Question: ${num1} ${num2}`;
+  const question = `${num1} ${num2}`;
 
   const correctAnswer = (greatestCommonDivisor(num1, num2)).toString();
   return {
@@ -27,8 +27,6 @@ const playGcdRound = () => {
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const launchGcdGame = () => {
-  playGame(gameDescription, playGcdRound);
+export default () => {
+  playGame(gameDescription, getDataForRound);
 };
-
-export default launchGcdGame;

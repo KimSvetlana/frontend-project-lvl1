@@ -1,30 +1,27 @@
-import randomNumberGenerator from '../tools/mathFun';
-import playGame from '../index';
+import randomNumberGenerator from '../NumberGenerator';
+import playGame from '..';
 
-const playProgressionRound = () => {
+const progressionLength = 10;
+
+const getDataForRound = () => {
   const firstMember = randomNumberGenerator(0, 100);
   const progressionStep = randomNumberGenerator(-10, 10);
 
   let progression = '';
-  const progressionLength = 10;
-  let unknownProgressionMember = 0;
-  const unknownProgressionMemberIndex = randomNumberGenerator(0, 9);
-  let currentMember = firstMember;
-
+  let hiddenMember = 0;
+  const hiddenMemberIndex = randomNumberGenerator(0, (progressionLength - 1));
 
   for (let i = 0; i < progressionLength; i += 1) {
-    if (i === unknownProgressionMemberIndex) {
-      unknownProgressionMember = currentMember;
+    if (i === hiddenMemberIndex) {
+      hiddenMember = firstMember + progressionStep * i;
       progression = `${progression} .. `;
     } else {
-      progression = `${progression} ${currentMember} `;
+      progression = `${progression} ${firstMember + progressionStep * i} `;
     }
-    currentMember += progressionStep;
   }
+  const question = `${progression}`;
 
-  const question = `Question: ${progression} `;
-
-  const correctAnswer = unknownProgressionMember.toString();
+  const correctAnswer = hiddenMember.toString();
   return {
     question,
     correctAnswer,
@@ -33,8 +30,6 @@ const playProgressionRound = () => {
 
 const gameDescription = 'What number is missing in the progression?';
 
-const launchProgressionGame = () => {
-  playGame(gameDescription, playProgressionRound);
+export default () => {
+  playGame(gameDescription, getDataForRound);
 };
-
-export default launchProgressionGame;

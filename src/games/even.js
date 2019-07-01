@@ -1,14 +1,12 @@
-import randomNumberGenerator from '../tools/mathFun';
-import playGame from '../index';
+import randomNumberGenerator from '../NumberGenerator';
+import playGame from '..';
 
 const isEven = num => num % 2 === 0;
 
-const playEvenRound = () => {
-  const num = randomNumberGenerator(0, 100);
+const getDataForRound = () => {
+  const question = `${randomNumberGenerator(0, 100)}`;
 
-  const question = `Question: ${num}`;
-
-  const correctAnswer = isEven(num) ? 'yes' : 'no';
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return {
     question,
@@ -17,8 +15,6 @@ const playEvenRound = () => {
 };
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-const launchEvenGame = () => {
-  playGame(gameDescription, playEvenRound);
+export default () => {
+  playGame(gameDescription, getDataForRound);
 };
-
-export default launchEvenGame;
