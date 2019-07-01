@@ -1,25 +1,24 @@
 import randomNumberGenerator from '../NumberGenerator';
 import playGame from '..';
 
+
 const isPrime = (number) => {
   if (number === 2) {
-    return true;
+    return false;
   }
   if (number > 2) {
     for (let i = 2; i < number; i += 1) {
       if (number % i === 0) {
-        return false;
+        return true;
       }
-      return true;
     }
   }
-  return false;
 };
 
 const getDataForRound = () => {
   const question = `${randomNumberGenerator(0, 100)}`;
 
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? 'no' : 'yes';
   return {
     question,
     correctAnswer,
