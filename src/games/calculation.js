@@ -1,9 +1,9 @@
-import randomNumberGenerator from '../NumberGenerator';
+import getRandom from '../NumberGenerator';
 import playGame from '..';
 
 const operations = '+-*';
 
-const makeCalculate = (operator, a, b) => {
+const calculate = (operator, a, b) => {
   switch (operator) {
     case '*':
       return a * b;
@@ -16,15 +16,14 @@ const makeCalculate = (operator, a, b) => {
   }
 };
 
-const getDataForRound = () => {
-  const num1 = randomNumberGenerator(0, 100);
-  const num2 = randomNumberGenerator(0, 100);
+const getRoundData = () => {
+  const a = getRandom(0, 100);
+  const b = getRandom(0, 100);
 
-  const operator = operations.charAt(randomNumberGenerator(0, operations.length - 1));
+  const operator = operations.charAt(getRandom(0, operations.length - 1));
 
-  const question = `${num1}${operator}${num2}`;
-
-  const correctAnswer = (makeCalculate(operator, num1, num2)).toString();
+  const question = `${a} ${operator} ${b}`;
+  const correctAnswer = calculate(operator, a, b);
   return {
     question,
     correctAnswer,
@@ -34,5 +33,5 @@ const getDataForRound = () => {
 const gameDescription = 'What is the result of the expression?';
 
 export default () => {
-  playGame(gameDescription, getDataForRound);
+  playGame(gameDescription, getRoundData);
 };

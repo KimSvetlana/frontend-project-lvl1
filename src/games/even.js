@@ -1,9 +1,9 @@
 import randomNumberGenerator from '../NumberGenerator';
 import playGame from '..';
 
-const isEven = num => num % 2 === 0;
+const isEven = n => n % 2 === 0;
 
-const getDataForRound = () => {
+const getRoundData = () => {
   const question = randomNumberGenerator(0, 100);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return {
@@ -14,5 +14,5 @@ const getDataForRound = () => {
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
 export default () => {
-  playGame(gameDescription, getDataForRound);
+  playGame(gameDescription, getRoundData);
 };
