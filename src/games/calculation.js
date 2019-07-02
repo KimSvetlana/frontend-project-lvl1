@@ -22,7 +22,7 @@ const getRoundData = () => {
   const operator = operations.charAt(getRandom(0, operations.length - 1));
 
   const question = `${a} ${operator} ${b}`;
-  const correctAnswer = calculate(operator, a, b);
+  const correctAnswer = (calculate(operator, a, b)).toString();
   return {
     question,
     correctAnswer,

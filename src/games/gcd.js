@@ -17,7 +17,7 @@ const getRoundData = () => {
   const b = getRandom(0, 100);
 
   const question = `${a} ${b}`;
-  const correctAnswer = greatestCommonDivisor(a, b);
+  const correctAnswer = (greatestCommonDivisor(a, b)).toString();
   return {
     question,
     correctAnswer,

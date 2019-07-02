@@ -19,7 +19,7 @@ const getRoundData = () => {
   }
 
   const question = progression;
-  const correctAnswer = (firstMember + progressionStep * hiddenMemberIndex);
+  const correctAnswer = (firstMember + progressionStep * hiddenMemberIndex).toString();
   return {
     question,
     correctAnswer,
