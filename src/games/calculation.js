@@ -1,4 +1,4 @@
-import getRandom from '../NumberGenerator';
+import getRandom from '../randomNumber';
 import playGame from '..';
 
 const operations = '+-*';
@@ -19,7 +19,6 @@ const calculate = (operator, a, b) => {
 const getRoundData = () => {
   const a = getRandom(0, 100);
   const b = getRandom(0, 100);
-
   const operator = operations.charAt(getRandom(0, operations.length - 1));
 
   const question = `${a} ${operator} ${b}`;

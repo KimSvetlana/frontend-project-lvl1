@@ -1,9 +1,9 @@
-import randomNumberGenerator from '../NumberGenerator';
+import getRandom from '../randomNumber';
 import playGame from '..';
 
 
 const isPrime = (n) => {
-  // negative, 0, 1 are not prime
+  // negative, 0 and 1 are not prime
   if (n < 2) {
     return false;
   }
@@ -16,7 +16,7 @@ const isPrime = (n) => {
 };
 
 const getRoundData = () => {
-  const question = randomNumberGenerator(0, 100);
+  const question = getRandom(0, 100);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return {
     question,
