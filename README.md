@@ -1,3 +1,8 @@
+# nodejs-package
+![Maintainability](https://api.codeclimate.com/v1/badges/21c9af77c017fe142fea/maintainability)
+
+[![Build Status](https://travis-ci.org/KimSvetlana/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/KimSvetlana/frontend-project-lvl1)
+
 # frontend-project-lvl1
 The project includes a set of mini-games launched from the console. The project contains the following mini-games : calculator, progression, GCD determination, determination even and prime of number.
 

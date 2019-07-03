@@ -7,19 +7,18 @@ const getRoundData = () => {
   const firstMember = getRandom(0, 100);
   const progressionStep = getRandom(-10, 10);
 
-  let progression = '';
+  let question = '';
   const hiddenMemberIndex = getRandom(0, (progressionLength - 1));
 
   for (let i = 0; i < progressionLength; i += 1) {
     if (i === hiddenMemberIndex) {
-      progression = `${progression} ..`;
+      question = `${question} ..`;
     } else {
-      progression = `${progression} ${firstMember + progressionStep * i}`;
+      question = `${question} ${firstMember + progressionStep * i}`;
     }
   }
 
-  const question = progression;
-  const correctAnswer = (firstMember + progressionStep * hiddenMemberIndex).toString();
+  const correctAnswer = ((firstMember + progressionStep * hiddenMemberIndex).toString()).trim();
   return {
     question,
     correctAnswer,
